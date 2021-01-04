@@ -38,12 +38,12 @@ Simple C++ SHA 1 implementation based on [RFC-3174]("https://tools.ietf.org/html
    ```
    
 ---
-##Additional information
+## Additional information
 As long as you pass data to the **Hasher** as std::string it should be working fine
 
 However, I have not check its work on something except simple strings
 
-#Warning
+# Warning
 
 You should not use SHA-1 unless you have to!
 
