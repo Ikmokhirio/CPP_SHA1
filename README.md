@@ -1,5 +1,5 @@
 # C++ implementation of Secure Hash Algorithm 1 (SHA1)
-Simple C++ SHA 1 implementation based on [RFC-3174]("https://tools.ietf.org/html/rfc3174") document
+Simple C++ SHA 1 implementation based on [RFC-3174](https://tools.ietf.org/html/rfc3174) document
 
 # Example
 
