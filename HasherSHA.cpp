@@ -47,7 +47,7 @@ std::string HasherSHA::adjustMessagePadding() {
 
     uint64_t len = message.size() * sizeof(char) * CHAR_BIT; // Length of message in bits
 
-    message += (char) (1 << CHAR_BIT - 1); // Add 10000000 to the end of message
+    message += (char) (1 << (CHAR_BIT - 1)); // Add 10000000 to the end of message
 
     while (message.size() * sizeof(char) * CHAR_BIT % DEFAULT_BLOCK_SIZE != 448) {
         message += FILLER;
@@ -157,7 +157,7 @@ void HasherSHA::clearPreviousBlocks() {
     blocks.swap(tmpBlocks);
 }
 
-HasherSHA::HasherSHA(const std::string& inputString) {
+HasherSHA::HasherSHA(const std::string &inputString) {
     if (!inputString.empty()) {
         hashString(inputString);
     }

@@ -34,7 +34,7 @@ private:
 
 public:
 
-    explicit HasherSHA(const std::string& inputString = "");
+    explicit HasherSHA(const std::string &inputString = "");
 
     void hashString(const std::string &stringToHash = "");
 
