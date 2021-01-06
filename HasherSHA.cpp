@@ -88,8 +88,8 @@ std::string HasherSHA::generateHash() {
     }
 
     std::stringstream ss;
-    for (int i = 0; i < intermediateHashes.size(); i++) {
-        ss << std::setfill('0') << std::setw(8) << std::hex << intermediateHashes[i];
+    for (unsigned int intermediateHash : intermediateHashes) {
+        ss << std::setfill('0') << std::setw(8) << std::hex << intermediateHash;
     }
 
     return ss.str();
