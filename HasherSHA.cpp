@@ -103,7 +103,7 @@ std::vector<uint32_t> HasherSHA::processNextBlock(std::vector<uint32_t> block, s
     for (int t = 0; t < 80; t++) {
 
         if (t >= 16) {
-            block.push_back(utils::rol(block[t - 3] ^ block[t - 8] ^ block[t - 14] ^ block[t - 16], 1));
+            block.push_back(utils::shiftLeft(block[t - 3] ^ block[t - 8] ^ block[t - 14] ^ block[t - 16], 1));
         }
 
         if (t >= 0 && t <= 19) {
@@ -122,11 +122,11 @@ std::vector<uint32_t> HasherSHA::processNextBlock(std::vector<uint32_t> block, s
             std::cerr << "ERROR" << std::endl;
         }
 
-        uint32_t temp = utils::rol(wordBuffer[0], 5) + f + wordBuffer[4] + block[t] + k;
+        uint32_t temp = utils::shiftLeft(wordBuffer[0], 5) + f + wordBuffer[4] + block[t] + k;
 
         wordBuffer[4] = wordBuffer[3];
         wordBuffer[3] = wordBuffer[2];
-        wordBuffer[2] = utils::rol(wordBuffer[1], 30);
+        wordBuffer[2] = utils::shiftLeft(wordBuffer[1], 30);
         wordBuffer[1] = wordBuffer[0];
         wordBuffer[0] = temp;
 

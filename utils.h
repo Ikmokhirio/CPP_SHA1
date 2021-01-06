@@ -10,7 +10,7 @@
 
 class utils {
 public:
-    static uint32_t rol(uint32_t val, uint32_t pos); // Left Circular Shift
+    static uint32_t shiftLeft(uint32_t val, uint32_t pos); // Left Circular Shift
 };
 
 
