@@ -31,8 +31,8 @@ void HasherSHA::splitStringToBlocks() {
 
             uint32_t value = 0;
             memcpy(&value, input.c_str() + (sizeof(uint32_t) * counter), sizeof(uint32_t));
-            value = _byteswap_ulong(value); // Convert little endian to big endian
 
+            value = BYTE_SWAP(value); // Convert little endian to big endian
             tmpVec.push_back(value);
 
             counter++;
