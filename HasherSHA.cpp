@@ -47,14 +47,14 @@ std::string HasherSHA::adjustMessagePadding() {
 
     uint64_t len = message.size() * sizeof(char) * CHAR_BIT; // Length of message in bits
 
-    message += (char) (1 << (CHAR_BIT - 1)); // Add 10000000 to the end of message
+    message += static_cast<char>(1 << (CHAR_BIT - 1)); // Add 10000000 to the end of message
 
     while (message.size() * sizeof(char) * CHAR_BIT % DEFAULT_BLOCK_SIZE != 448) {
         message += FILLER;
     }
 
     for (int i = 0; i < sizeof(uint64_t); i++) {
-        message += (char) (len >> (CHAR_BIT * (CHAR_BIT - (i + 1)))); // Add message length as big endian by bytes
+        message += static_cast<char>(len >> (CHAR_BIT * (CHAR_BIT - (i + 1)))); // Add message length as big endian by bytes
     }
 
 
@@ -74,7 +74,6 @@ std::string HasherSHA::generateHash() {
     intermediateHashes.push_back(0xC3D2E1F0);
 
     for (auto &block : blocks) {
-
 
         std::vector<uint32_t> wordBuffer = intermediateHashes;
 
