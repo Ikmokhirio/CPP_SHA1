@@ -136,7 +136,6 @@ std::vector<uint32_t> HasherSHA::processNextBlock(std::vector<uint32_t> block, s
 }
 
 std::ostream &operator<<(std::ostream &os, HasherSHA &hasher) {
-    hasher.hashString();
     os << hasher.getHashedString();
     return os;
 }
@@ -144,7 +143,7 @@ std::ostream &operator<<(std::ostream &os, HasherSHA &hasher) {
 std::istream &operator>>(std::istream &is, HasherSHA &hasher) {
     std::string inputString;
     is >> inputString;
-    hasher.stringToHash += inputString;
+    hasher.hashString(inputString);
     return is;
 }
 
